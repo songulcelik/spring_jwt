@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//?5*** implement ediyoruz ve 7 methodu override ettik. 6 icin userdetails serviceimpl
 public class UserDetailsImpl implements UserDetails {
 
     private Long id;

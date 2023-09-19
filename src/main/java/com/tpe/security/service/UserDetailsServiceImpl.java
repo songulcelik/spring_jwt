@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
+//? 6**** olusturduk ve ici bos. 7 icin AuthToken filter
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

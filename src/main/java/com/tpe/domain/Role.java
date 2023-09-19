@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
+//? 3****
 @Getter
 @Setter
 @AllArgsConstructor
@@ -31,4 +31,4 @@ public class Role {
                 "name=" + name +
                 '}';
     }
-}
+}//? 4 icin config web security config

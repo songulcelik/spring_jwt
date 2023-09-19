@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+//?2***
 @Entity
 @Getter
 @Setter
@@ -38,4 +38,4 @@ public class User {
             inverseJoinColumns = @JoinColumn(name="role_id"))
     @ManyToMany(fetch=FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
-}
+}//? 3 role

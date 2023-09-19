@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //@RequiredArgsConstructor
+//? 7*** filtre koyacagimiz class ici bos olusturduk. 8 icin jwtutils
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
