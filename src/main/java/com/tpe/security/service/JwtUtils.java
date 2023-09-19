@@ -10,7 +10,6 @@ import java.util.Date;
 @Component
 public class JwtUtils {
 
-
     //? 12** secret kelimesine ve ttoken suresine ihtiyacimiz var. bunlari field olarak ekliyoruz
     private String jwtSecret ="sboot";
     private long jwtExpirationMs = 86400000; // 60*60*24*1000 ( 1 GUN )
@@ -53,13 +52,16 @@ public class JwtUtils {
     }
 
 
-    //? 15 **********  Get UserName from TOKEN *******************
+    //? 15 **********  Get UserName from TOKEN *******************//jwt tokenden username bilgisini istiyoruz
     public String getUserNameFromJwtToken(String token){//username bilgisi neden tokende. unique oldugu icin
 
-        return Jwts.parser().
-                setSigningKey(jwtSecret).
-                parseClaimsJws(token).
-                getBody().
-                getSubject();
-    }
+        return Jwts.parser().//claimslerine bolcez parcalara bolcez
+                setSigningKey(jwtSecret).//sifrelendigini soyluyorum
+                parseClaimsJws(token).//claimslerine bol
+                getBody().//ilk jwttokenin bodysine git
+                getSubject();//usernameyi subjecte atmistik yukarda. oradan aldik
+    }//16 icin AuthTokenFilter
+
+
+
 }

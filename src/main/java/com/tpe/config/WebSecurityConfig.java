@@ -16,20 +16,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+//? 25***
 @AllArgsConstructor
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 //? 4*** ici bos sekilde bu classi olusturduk.5 icin sonra securityde service icine userdetailsimpl
 public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
-
+//26 extends WebSecurityConfigurerAdapter
     @Autowired
     private UserDetailsService userDetailsService;
 
+    //? 27***
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable().
+        http.csrf().disable().//csrf().disable() yapmazsak update islemlerinde hata aliriz
                 sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS).
                 and().
