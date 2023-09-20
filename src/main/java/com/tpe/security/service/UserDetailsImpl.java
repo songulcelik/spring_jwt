@@ -14,31 +14,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//? 33****
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//?5*** implement ediyoruz ve 7 methodu override ettik. 6 icin userdetails serviceimpl
+//? 5*** implement ediyoruz ve 7 methodu override ettik. 6 icin userdetails serviceimpl
 public class UserDetailsImpl implements UserDetails {
 
+    //? 34*** userdetailsi kendi istedigim fieldlarla olusturuyorum
     private Long id;
 
     private String userName;
 
-    @JsonIgnore // !!! client tarafina gideerse , password gitmesin
+    @JsonIgnore //client tarafina gideerse , password gitmesin
     private String password;
 
-    private Collection<? extends GrantedAuthority> authorities;
+    private Collection<? extends GrantedAuthority> authorities;//rollerimi eklicem .GrantedAuthority extend eden herhangi bir class
 
-    // !!! user --> userDetails e cevirecek
+    //? 35** user --> userDetails e cevirecek
     public static UserDetailsImpl build(User user) {
-        // !!! rollerimi GrantedAuthorities e cevirecem
-        // !!! loadUserByUserName metodunda yardimci method olarak cagirilacak
+        // rollerimi GrantedAuthorities e cevirecem
+        // loadUserByUserName metodunda yardimci method olarak cagirilacak
         List<SimpleGrantedAuthority> authorities = user.getRoles().stream().
                 map(role-> new SimpleGrantedAuthority(role.getName().name())).
                 collect(Collectors.toList());
-        // !!! user bilgilerim ile userDetails olusturup donduruyorum
+        // user bilgilerim ile userDetails olusturup donduruyorum
 
         return new UserDetailsImpl(user.getId(),
                 user.getUserName(),
@@ -49,6 +50,7 @@ public class UserDetailsImpl implements UserDetails {
 
 
 
+    //? 36** nullari ceviriyoruz
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
@@ -82,5 +84,5 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
+    }//37 icin UserDetailsServiceImpl
 }

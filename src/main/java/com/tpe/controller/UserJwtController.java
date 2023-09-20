@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
-
+//? 39***
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
@@ -29,17 +29,18 @@ public class UserJwtController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtils jwtUtils;
 
-    // !!! ***************** REGISTER ****************************
-    @PostMapping("/register") // hhtp://localhost:8080/register  + POST
-    public ResponseEntity<String> registerUser(@RequestBody @Valid RegisterRequest request){
-
+    //? 40****
+    //REGISTER ****************************
+    @PostMapping("/register") // http://localhost:8080/register  + POST
+    public ResponseEntity<String> registerUser(@RequestBody @Valid RegisterRequest request){//41 registerequest dto classini olusturduk
+        //42  user servise olusturduk
+        //? 43***
         userService.registerUser(request);
 
         String responseMessage = "User registered successfully";
 
         return new ResponseEntity<>(responseMessage, HttpStatus.CREATED);
-
-    }
+    }//44 UserService
 
     // !!! ****************** LOGIN ********************************
     @PostMapping("/login") // hhtp://localhost:8080/login  + POST

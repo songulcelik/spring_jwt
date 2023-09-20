@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+//? ** 42
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -22,7 +22,7 @@ private final UserRepository userRepository;
 private final RoleRepository roleRepository;
 private final PasswordEncoder passwordEncoder;
 
-    //38
+    //? 44 **
     public void registerUser(RegisterRequest request) {
         if (userRepository.existsByUserName(request.getUserName())){
             throw new ConflictException("User is already exist");
@@ -41,5 +41,5 @@ private final PasswordEncoder passwordEncoder;
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         userRepository.save(user);
-    }
+    }//45 icin
 }

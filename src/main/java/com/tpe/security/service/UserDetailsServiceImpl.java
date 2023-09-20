@@ -12,16 +12,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {//? 21** implement ettik. tekrar AuthToken filter 22
 
-
+    //? 37***
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+        //? 38***
         User user = userRepository.findByUserName(username).orElseThrow(()->
                 new ResourceNotFoundException("User not found with username : " + username));
 
         return UserDetailsImpl.build(user);
-    }
+    }//39 icin UserJwtController
 }
