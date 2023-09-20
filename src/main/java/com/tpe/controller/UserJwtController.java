@@ -42,13 +42,14 @@ public class UserJwtController {
         return new ResponseEntity<>(responseMessage, HttpStatus.CREATED);
     }//44 UserService
 
-    // !!! ****************** LOGIN ********************************
+    //?  45 ***************** LOGIN ********************************
     @PostMapping("/login") // hhtp://localhost:8080/login  + POST
-    public ResponseEntity<Map<String, String>> login(@RequestBody @Valid LoginRequest request){
-        // !!! kullanica authenticate edilecek
+    public ResponseEntity<Map<String, String>> login(@RequestBody @Valid LoginRequest request){//46 LoginRequest olusturduk
+        //? 47***
+        //kullanici authenticate edilecek
         Authentication authentication =authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUserName(), request.getPassword()));
-        // !!! JWT token uretiliyor
+        // JWT token uretiliyor
         String token = jwtUtils.generateToken(authentication);
 
         Map<String, String> map = new HashMap<>();

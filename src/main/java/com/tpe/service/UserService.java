@@ -41,5 +41,5 @@ private final PasswordEncoder passwordEncoder;
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         userRepository.save(user);
-    }//45 icin
+    }//45 icin UserJwtController
 }
